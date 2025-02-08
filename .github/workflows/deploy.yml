@@ -22,7 +22,7 @@ jobs:
 
       - name: Deploy to Remote Server
         run: |
-          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+          ssh -i ~/.ssh/id_rsa ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
             cd $HOME/ci-cd-demo # Change this to the correct path
             git pull origin master    # Pull latest changes
             npm install               # Install dependencies
