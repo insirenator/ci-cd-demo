@@ -29,6 +29,7 @@ jobs:
       - name: Deploy to Remote Server
         run: |
           ssh -i ~/.ssh/id_rsa -l ${{ secrets.SSH_USER }} ${{ secrets.SSH_HOST }} << 'EOF'
+            export PATH=$PATH:/root/.nvm/versions/node/v22.13.1/bin
             echo $PATH
             cd $HOME/ci-cd-demo # Change this to the correct path
             git pull origin master    # Pull latest changes
