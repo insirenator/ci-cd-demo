@@ -26,7 +26,7 @@ jobs:
             cd $HOME/ci-cd-demo # Change this to the correct path
             git pull origin master    # Pull latest changes
             npm install               # Install dependencies
-            pm2 delete api            # Delete API process
+            pm2 delete api || true            # Delete API process
             pm2 start index.js --name api  # Restart app using PM2 (or change this to your process manager)
           EOF
 
